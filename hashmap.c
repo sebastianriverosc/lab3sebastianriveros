@@ -66,7 +66,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         }
         pos++;
     }
-
+    if (is_equal(key, map->buckets[pos]->key) == 1) return;
     Pair* nuevo = createPair(key, value);
     map->buckets[pos] = nuevo;
 
