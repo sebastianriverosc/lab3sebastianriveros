@@ -60,11 +60,11 @@ HashMap * createMap(long capacity) {
 
 void insertMap(HashMap * map, char * key, void * value) {
     long pos = hash(key, map->capacity);
-    while (map->buckets[pos] != NULL && is_equal(map->buckets[pos]->key, key)== 1){
+    while (map->buckets[pos] != NULL && is_equal(map->buckets[pos]->key, key)== 0){
         if (map->buckets[pos] == NULL || map->buckets[pos]->key == NULL){
             break;
         }
-        pos++;
+        pos = (pos + 1) % map->capacity;
     }
     if (map->buckets[pos] == NULL){
         Pair* nuevo = createPair(key, value);
