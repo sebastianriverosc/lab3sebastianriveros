@@ -67,13 +67,13 @@ void insertMap(HashMap * map, char * key, void * value) {
         pos++;
     }
     if (map->buckets[pos] == NULL){
+        if (is_equal(map->buckets[pos]->key, key)){
+            return;
+        }
         Pair* nuevo = createPair(key, value);
         map->buckets[pos] = nuevo;
 
         map->size++;
-    }
-    if (is_equal(map->buckets[pos]->key, key)){
-        return;
     }
 }
 
