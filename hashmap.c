@@ -66,6 +66,9 @@ void insertMap(HashMap * map, char * key, void * value) {
         }
         pos++;
     }
+    if (map->buckets[pos] == NULL){
+        return;
+    }
     if (is_equal(map->buckets[pos]->key, key)){
         return;
     }
