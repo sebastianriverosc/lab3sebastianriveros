@@ -125,3 +125,17 @@ Thu Apr 16 08:49:04 PM UTC 2026:
  1 file changed, 3 insertions(+), 3 deletions(-)
  tests:  0|0
 c3ffde7
+Thu Apr 16 08:49:52 PM UTC 2026: 
+ hashmap.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:63:82: error: expected ‘)’ before ‘{’ token
+   63 |     while (map->buckets[pos] != NULL && is_equal(map->buckets[pos]->key, key)== 0{
+      |           ~                                                                      ^
+      |                                                                                  )
+hashmap.c:75:1: error: expected expression before ‘}’ token
+   75 | }
+      | ^
+64564b2
