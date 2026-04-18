@@ -101,11 +101,13 @@ Pair * searchMap(HashMap * map,  char * key) {
         while (map->buckets[pos] != NULL){
             pos++;
             if (strcmp(map->buckets[pos]->key, key) == 0){
+                map->current = pos;
                 return map->buckets[pos];
             }
         }
         return NULL;
     }
+    map->current = pos;
     return map->buckets[pos];
 }
 
