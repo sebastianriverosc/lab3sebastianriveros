@@ -99,7 +99,7 @@ Pair * searchMap(HashMap * map,  char * key) {
 
     if (strcmp(map->buckets[pos]->key, key) != 0){
         while (map->buckets[pos] != NULL){
-            pos++;
+            pos = (pos + 1) % map->capacity;
             if (strcmp(map->buckets[pos]->key, key) == 0){
                 map->current = pos;
                 return map->buckets[pos];
