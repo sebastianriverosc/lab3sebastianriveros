@@ -157,3 +157,17 @@ Thu Apr 16 08:51:49 PM UTC 2026:
  tests:  4|5
 total_score: 15/60
 f2496ba
+Sat Apr 18 05:58:45 PM UTC 2026: 
+ hashmap.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘createMap’:
+hashmap.c:49:22: error: ‘newMap’ is used uninitialized [-Werror=uninitialized]
+   49 |     newMap->capacity = capacity;
+      |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~
+hashmap.c:48:14: note: ‘newMap’ was declared here
+   48 |     HashMap* newMap;
+      |              ^~~~~~
+cc1: all warnings being treated as errors
+b9eaeb7
