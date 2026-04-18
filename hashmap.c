@@ -95,17 +95,18 @@ void insertMap(HashMap * map, char * key, void * value) {
 // Recuerde actualizar el índice current a la posición encontrada. Recuerde que el arreglo es circular.
 
 Pair * searchMap(HashMap * map,  char * key) {   
+    if (map == NULL || key == NULL) return NULL;
+    
     long pos = hash(key, map->capacity);
     long posInicial = pos;
 
-    
     while (map->buckets[pos] != NULL){
         if (strcmp(map->buckets[pos]->key, key) == 0){
             map->current = pos;
             return map->buckets[pos];
         }
         pos = (pos + 1) % map->capacity;
-        if (pos== posInicial) break;
+        if (pos == posInicial) break;
     }
     
     return NULL;
