@@ -52,7 +52,11 @@ HashMap * createMap(long capacity) {
     newMap->current = -1;
     
     newMap->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
-    
+    if (newMap->buckets == NULL){
+        free(newMap);
+        return NULL;
+    }
+
     return newMap;
 }
 
