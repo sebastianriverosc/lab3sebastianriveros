@@ -96,19 +96,19 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 Pair * searchMap(HashMap * map,  char * key) {   
     long pos = hash(key, map->capacity);
+    long posInicial = pos;
 
-    if (strcmp(map->buckets[pos]->key, key) != 0){
-        while (map->buckets[pos] != NULL){
-            pos = (pos + 1) % map->capacity;
-            if (strcmp(map->buckets[pos]->key, key) == 0){
-                map->current = pos;
-                return map->buckets[pos];
-            }
+    
+    while (map->buckets[pos] != NULL){
+        if (strcmp(map->buckets[pos]->key, key) == 0){
+            map->current = pos;
+            return map->buckets[pos];
         }
-        return NULL;
+        pos = (pos + 1) % map->capacity;
+        if (pos== posInicial) break;
     }
-    map->current = pos;
-    return map->buckets[pos];
+    
+    return NULL;
 }
 
 // 4. Implemente la función void eraseMap(HashMap * map, char * key). 
