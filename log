@@ -282,3 +282,17 @@ Sat Apr 18 09:04:21 PM UTC 2026:
  tests:  12|2
 total_score: 40/60
 2c5354c
+Sat Apr 18 09:08:16 PM UTC 2026: 
+ hashmap.c | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘nextMap’:
+hashmap.c:157:10: error: unused variable ‘pos’ [-Werror=unused-variable]
+  157 |     long pos = map->current;
+      |          ^~~
+hashmap.c:159:1: error: control reaches end of non-void function [-Werror=return-type]
+  159 | }
+      | ^
+cc1: all warnings being treated as errors
+8fe5185
