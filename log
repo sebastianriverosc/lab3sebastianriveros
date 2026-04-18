@@ -185,3 +185,17 @@ hashmap.c:54:1: error: control reaches end of non-void function [-Werror=return-
       | ^
 cc1: all warnings being treated as errors
 174a2d2
+Sat Apr 18 06:03:01 PM UTC 2026: 
+ hashmap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘createMap’:
+hashmap.c:49:22: error: ‘newMap’ is used uninitialized [-Werror=uninitialized]
+   49 |     newMap->capacity = capacity;
+      |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~
+hashmap.c:48:14: note: ‘newMap’ was declared here
+   48 |     HashMap *newMap;
+      |              ^~~~~~
+cc1: all warnings being treated as errors
+2ef58a7
