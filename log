@@ -249,3 +249,18 @@ Sat Apr 18 08:52:11 PM UTC 2026:
  tests:  11|2
 total_score: 40/60
 6118711
+Sat Apr 18 08:59:32 PM UTC 2026: 
+ hashmap.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘firstMap’:
+hashmap.c:150:17: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘bucket’; did you mean ‘buckets’?
+  150 |     return map->bucket[pos];
+      |                 ^~~~~~
+      |                 buckets
+hashmap.c:151:1: error: control reaches end of non-void function [-Werror=return-type]
+  151 | }
+      | ^
+cc1: all warnings being treated as errors
+c91f7ba
