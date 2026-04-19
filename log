@@ -306,3 +306,31 @@ Sat Apr 18 09:10:40 PM UTC 2026:
  tests:  16|1
 total_score: 50/60
 87653b9
+Sun Apr 19 08:54:23 PM UTC 2026: 
+ hashmap.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:183:39: error: passing argument 1 of ‘realloc’ makes pointer from integer without a cast [-Wint-conversion]
+  183 |     map->buckets = (Pair**)realloc(map->capacity, sizeof(Pair**));
+      |                                    ~~~^~~~~~~~~~
+      |                                       |
+      |                                       long int
+In file included from test.c:2:
+/nix/store/41pf3md9zgpda9kwh6rzn5kaddf7i0lp-glibc-2.40-66-dev/include/stdlib.h:683:29: note: expected ‘void *’ but argument is of type ‘long int’
+  683 | extern void *realloc (void *__ptr, size_t __size)
+      |                       ~~~~~~^~~~~
+hashmap.c:185:30: error: ‘aux’ is a pointer to pointer; did you mean to dereference it before applying ‘->’ to it?
+  185 |     for (long i = 0 ; i < aux->size; i++){
+      |                              ^~
+      |                           (* )
+hashmap.c:186:27: error: ‘aux’ is a pointer to pointer; did you mean to dereference it before applying ‘->’ to it?
+  186 |         insertMap(map, aux->buckets[i]->key, aux->buckets[i]->value);
+      |                           ^~
+      |                        (* )
+hashmap.c:186:49: error: ‘aux’ is a pointer to pointer; did you mean to dereference it before applying ‘->’ to it?
+  186 |         insertMap(map, aux->buckets[i]->key, aux->buckets[i]->value);
+      |                                                 ^~
+      |                                              (* )
+627fd5b
