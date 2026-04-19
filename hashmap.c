@@ -178,7 +178,7 @@ Pair * nextMap(HashMap * map) {
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
     
-    Pair** aux = map->buckets;
+    HashMap *aux = map->buckets;
     map->capacity = map->capacity*2;
     map->buckets = (Pair**)realloc(map->capacity, sizeof(Pair**));
     map->size = 0;
