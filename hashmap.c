@@ -178,11 +178,14 @@ Pair * nextMap(HashMap * map) {
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
     
-    HashMap *aux = map;
-    map->capacity = map->capacity*2;
-    map->buckets = (Pair**)realloc(map->capacity, sizeof(Pair**));
+    Pair **oldBuckets = map->buckets;
+    long oldCapacity = map->capacity;
+    
+    map->capacity *= 2;
+    map->buckets = (Pair**)calloc(map->capacity, sizeof(Pair*));
     map->size = 0;
-    for (long i = 0 ; i < aux->size; i++){
-        insertMap(map, aux->buckets[i]->key, aux->buckets[i]->value);
+    for (long i = 0 ; i < oldCapacity; i++){
+        insertMap(map, oldBuckets[i]->key, oldBuckets[i]->value);
     }
+    free(oldBuckets);
 }
